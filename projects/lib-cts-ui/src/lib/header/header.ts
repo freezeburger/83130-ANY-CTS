@@ -1,6 +1,6 @@
 import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component,  HostListener, inject, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, inject, OnInit } from '@angular/core';
+import { BehaviorSubject, filter, map, reduce, Subject } from 'rxjs';
 
 @Component({
   selector: 'ui-header',
@@ -12,6 +12,18 @@ import { BehaviorSubject } from 'rxjs';
 export class Header implements OnInit {
 
   currentTime = new BehaviorSubject(Date.now());
+  /**
+   * Observable (base)
+   *
+   * Subject         - allows to emit values and be observed
+   * ReplaySubject   - emits a specified number of previous values to new subscribers
+   * BehaviorSubject - holds the latest value and emits it to new subscribers
+   * AsyncSubject    - emits the last value to observers upon completion
+   *
+   * Operators
+   *
+   * map, filter, reduce, switchMap, merge, concatMap, tap...
+   */
 
   // cdr = inject(ChangeDetectorRef);
 
@@ -20,18 +32,17 @@ export class Header implements OnInit {
     console.log('Window clicked', event);
   }
 
+  tick = () => {
+    this.currentTime.next(Date.now());
+  }
+
   ngOnInit(): void {
 
     console.log('Header component initialized');
+    setInterval(this.tick, 1000);
 
-    setInterval(() => {
-
-        console.log('Updating current time in header component');
-        this.currentTime.next(Date.now()) ;
-        // this.cdr.markForCheck();
-
-    }, 1000);
   }
+
 
 }
 
