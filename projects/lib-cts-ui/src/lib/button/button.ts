@@ -1,6 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { Variants } from '@dev/ui';
+import { Variants } from '../../types';
 
+/**
+ * A simple button component that can be used throughout the application.
+ * It accepts a `variant` input to allow for different styles (e.g., primary, secondary).
+ * The button uses content projection to allow for flexible content inside the button.
+ */
 @Component({
   selector: 'ui-button',
   imports: [],

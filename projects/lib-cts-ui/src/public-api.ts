@@ -13,6 +13,7 @@ export * from './types';
  */
 
 export * from './lib/button/button';
+export * from './lib/header/header';
 
 /**
  * Directives
