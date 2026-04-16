@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Variants } from '../../types';
+import { NgClass } from '@angular/common';
+
 
 /**
  * A simple button component that can be used throughout the application.
@@ -8,9 +10,9 @@ import { Variants } from '../../types';
  */
 @Component({
   selector: 'ui-button',
-  imports: [],
+  imports: [NgClass],
   template: `
-    <button>
+    <button [ngClass]="variant">
       <ng-content></ng-content>
     </button>
   `,
@@ -28,6 +30,18 @@ import { Variants } from '../../types';
 
   button:hover {
     background-color: gray;
+  }
+
+  .primary{
+    background-color: cornflowerblue;
+  }
+
+  .secondary{
+    background-color: lightseagreen;
+  }
+
+  .tertiary{
+    background-color: crimson;
   }
   `,
 })
