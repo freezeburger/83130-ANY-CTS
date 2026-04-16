@@ -1,5 +1,5 @@
-import { Component, input } from '@angular/core';
-import { Variants } from '@/types';
+import { Component } from '@angular/core';
+import { WithVariant } from '../../directives/with-variant';
 
 /**
  * A simple button component that can be used throughout the application.
@@ -9,8 +9,14 @@ import { Variants } from '@/types';
 @Component({
   selector: 'ui-button',
   imports: [],
+  hostDirectives:[
+    {
+      directive: WithVariant,
+      inputs: ['variant']
+    }
+  ],
   template: `
-    <button [class]="variant()">
+    <button>
       <ng-content></ng-content>
     </button>
   `,
@@ -30,19 +36,18 @@ import { Variants } from '@/types';
       background-color: gray;
     }
 
-    .primary {
+    :host.primary button {
       background-color: cornflowerblue;
     }
 
-    .secondary {
+    :host.secondary button {
       background-color: lightseagreen;
     }
 
-    .tertiary {
+    :host.tertiary button {
       background-color: crimson;
     }
   `,
 })
 export class Button {
-  readonly variant = input<Variants>();
 }

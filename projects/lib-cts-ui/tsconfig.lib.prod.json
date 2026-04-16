@@ -3,6 +3,11 @@
 {
   "extends": "./tsconfig.lib.json",
   "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
     "declarationMap": false
   },
   "angularCompilerOptions": {
