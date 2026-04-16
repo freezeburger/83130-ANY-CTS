@@ -1,6 +1,6 @@
 import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, inject, OnInit, signal } from '@angular/core';
-import { BehaviorSubject, filter, map, reduce, Subject } from 'rxjs';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
+
 
 @Component({
   selector: 'ui-header',
@@ -13,13 +13,7 @@ export class Header implements OnInit {
 
   currentTime = signal(Date.now());
 
-  @HostListener('window:click', ['$event'])
-  onWindowClick(event: Event) {
-    console.log('Window clicked', event);
-  }
-
-   ngOnInit(): void {
-    console.log('Header component initialized');
+  ngOnInit(): void {
     setInterval(this.tick, 1000);
   }
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WithVariant } from '../../directives/with-variant';
+import { ZoomHover } from '../../directives/zoom-hover';
 
 /**
  * A simple button component that can be used throughout the application.
@@ -9,7 +10,8 @@ import { WithVariant } from '../../directives/with-variant';
 @Component({
   selector: 'ui-button',
   imports: [],
-  hostDirectives:[
+  hostDirectives: [
+    ZoomHover,
     {
       directive: WithVariant,
       inputs: ['variant']
@@ -38,14 +40,26 @@ import { WithVariant } from '../../directives/with-variant';
 
     :host.primary button {
       background-color: cornflowerblue;
+
+      &:hover {
+        background-color: royalblue;
+      }
     }
 
     :host.secondary button {
       background-color: lightseagreen;
+
+      &:hover {
+        background-color: mediumseagreen;
+      }
     }
 
     :host.tertiary button {
       background-color: crimson;
+
+      &:hover {
+        background-color: firebrick;
+      }
     }
   `,
 })
