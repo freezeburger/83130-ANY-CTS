@@ -6,6 +6,12 @@
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
+    "paths": {
+      "@cts/core": ["./dist/lib-cts-core"],
+      "@cts/ui": ["./dist/lib-cts-ui"],
+      "@dev/core": ["./projects/lib-cts-core/src/public-api.ts"],
+      "@dev/ui": ["./projects/lib-cts-ui/src/public-api.ts"]
+    },
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
@@ -24,10 +30,28 @@
   "files": [],
   "references": [
     {
-      "path": "./tsconfig.app.json"
+      "path": "./projects/conserto-app/tsconfig.app.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./projects/conserto-app/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/cts-app-2/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/cts-app-2/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/lib-cts-ui/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/lib-cts-ui/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/lib-cts-core/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/lib-cts-core/tsconfig.spec.json"
     }
   ]
 }

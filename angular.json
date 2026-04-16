@@ -13,25 +13,23 @@
           "style": "scss"
         }
       },
-      "root": "",
-      "sourceRoot": "src",
+      "root": "projects/conserto-app",
+      "sourceRoot": "projects/conserto-app/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "src/main.ts",
-            "tsConfig": "tsconfig.app.json",
+            "browser": "projects/conserto-app/src/main.ts",
+            "tsConfig": "projects/conserto-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "projects/conserto-app/public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["projects/conserto-app/src/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -71,6 +69,124 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        }
+      }
+    },
+    "cts-app-2": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/cts-app-2",
+      "sourceRoot": "projects/cts-app-2/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/cts-app-2/src/main.ts",
+            "tsConfig": "projects/cts-app-2/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/cts-app-2/public"
+              }
+            ],
+            "styles": ["projects/cts-app-2/src/styles.scss"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "cts-app-2:build:production"
+            },
+            "development": {
+              "buildTarget": "cts-app-2:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
+    },
+    "lib-cts-ui": {
+      "projectType": "library",
+      "root": "projects/lib-cts-ui",
+      "sourceRoot": "projects/lib-cts-ui/src",
+      "prefix": "ui",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lib-cts-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lib-cts-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/lib-cts-ui/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "lib-cts-core": {
+      "projectType": "library",
+      "root": "projects/lib-cts-core",
+      "sourceRoot": "projects/lib-cts-core/src",
+      "prefix": "core",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lib-cts-core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lib-cts-core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/lib-cts-core/tsconfig.spec.json"
+          }
         }
       }
     }
