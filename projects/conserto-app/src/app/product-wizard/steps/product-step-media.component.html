@@ -1,0 +1,58 @@
+<section class="step-layout">
+  <h3>Média et contenu</h3>
+
+  <div class="form-grid">
+    <div class="field-block col-span-2">
+      <label>Thumbnail</label>
+      <input [formField]="group().thumbnail" />
+    </div>
+  </div>
+
+  <div class="list-section">
+    <h4>Tags</h4>
+    <div class="inline-form">
+      <input [value]="newTag()" (input)="newTag.set($any($event.target).value)" placeholder="Ajouter un tag" />
+      <button type="button" class="button small" (click)="emitTag()">Ajouter</button>
+    </div>
+
+    <ul class="chip-list">
+      @for (tag of product().tags; track $index) {
+        <li class="chip">
+          <span>{{ tag }}</span>
+          <button type="button" (click)="tagRemoved.emit($index)">×</button>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <div class="list-section">
+    <h4>Images</h4>
+    <div class="inline-form">
+      <input [value]="newImage()" (input)="newImage.set($any($event.target).value)" placeholder="https://..." />
+      <button type="button" class="button small" (click)="emitImage()">Ajouter</button>
+    </div>
+
+    <ul class="stack-list">
+      @for (image of product().images; track $index) {
+        <li>
+          <span>{{ image }}</span>
+          <button type="button" (click)="imageRemoved.emit($index)">Supprimer</button>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <div class="list-section">
+    <h4>Avis</h4>
+    <button type="button" class="button small" (click)="reviewAdded.emit()">Ajouter un avis</button>
+
+    <ul class="stack-list">
+      @for (review of product().reviews; track $index) {
+        <li>
+          <span>{{ review.reviewerName || 'Sans nom' }} — {{ review.rating }}/5</span>
+          <button type="button" (click)="reviewRemoved.emit($index)">Supprimer</button>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

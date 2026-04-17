@@ -1,0 +1,84 @@
+:host {
+  display: block;
+  padding: 1.5rem;
+  color: #e5e7eb;
+}
+
+.wizard-shell {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.wizard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.wizard-header h2 {
+  margin: 0 0 0.25rem;
+}
+
+.wizard-header p {
+  margin: 0;
+  color: #94a3b8;
+}
+
+.wizard-progress {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.progress-dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 999px;
+  background: #334155;
+}
+
+.progress-dot.is-active {
+  background: #60a5fa;
+}
+
+.progress-dot.is-done {
+  background: #22c55e;
+}
+
+.wizard-card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+}
+
+.wizard-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.button {
+  border: 0;
+  border-radius: 0.8rem;
+  padding: 0.8rem 1.1rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.button.primary {
+  background: #2563eb;
+  color: white;
+}
+
+.button.secondary {
+  background: #1e293b;
+  color: #e5e7eb;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

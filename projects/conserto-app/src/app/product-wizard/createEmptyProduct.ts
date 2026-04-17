@@ -1,0 +1,35 @@
+import { ProductDTO } from "../core/dto/product.dto";
+
+export const createEmptyProduct = (): ProductDTO => ({
+  id: globalThis.crypto?.randomUUID?.() ?? 'product-temp-id',
+  title: '',
+  description: '',
+  category: '',
+  price: 0,
+  discountPercentage: 0,
+  rating: 0,
+  stock: 0,
+  tags: [],
+  brand: '',
+  sku: '',
+  weight: 0,
+  dimensions: {
+    width: 0,
+    height: 0,
+    depth: 0,
+  },
+  warrantyInformation: '',
+  shippingInformation: '',
+  availabilityStatus: '',
+  reviews: [],
+  returnPolicy: '',
+  minimumOrderQuantity: 1,
+  meta: {
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    barcode: '',
+    qrCode: '',
+  },
+  images: [],
+  thumbnail: '',
+})

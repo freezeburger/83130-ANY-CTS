@@ -1,0 +1,61 @@
+<section class="wizard-shell">
+  <header class="wizard-header">
+    <div>
+      <h2>Product wizard</h2>
+      <p>Étape {{ step() + 1 }} / {{ maxStep + 1 }}</p>
+    </div>
+
+    <div class="wizard-progress" aria-hidden="true">
+      @for (item of [0, 1, 2, 3, 4]; track $index) {
+        <span class="progress-dot" [class.is-active]="step() === item" [class.is-done]="step() > item"></span>
+      }
+    </div>
+  </header>
+
+  <main class="wizard-card">
+    @if (step() === 0) {
+      <app-product-step-general [group]="productForm" />
+    }
+
+    @if (step() === 1) {
+      <app-product-step-commerce [group]="productForm" />
+    }
+
+    @if (step() === 2) {
+      <app-product-step-logistics [group]="productForm" />
+    }
+
+    @if (step() === 3) {
+      <app-product-step-media
+        [group]="productForm"
+        [product]="model()"
+        (tagAdded)="addTag($event)"
+        (tagRemoved)="removeTag($event)"
+        (imageAdded)="addImage($event)"
+        (imageRemoved)="removeImage($event)"
+        (reviewAdded)="addReview()"
+        (reviewRemoved)="removeReview($event)"
+      />
+    }
+
+    @if (step() === 4) {
+      <app-product-step-summary [product]="model()" />
+    }
+  </main>
+
+  <footer class="wizard-actions">
+    <button type="button" class="button secondary" (click)="previous()" [disabled]="step() === 0">
+      Précédent
+    </button>
+
+    @if (!isLastStep()) {
+      <button type="button" class="button primary" (click)="next()" [disabled]="!canGoNext()">
+        Suivant
+      </button>
+    } @else {
+      <button type="button" class="button primary" (click)="submit()">
+        Enregistrer
+      </button>
+    }
+  </footer>
+</section>

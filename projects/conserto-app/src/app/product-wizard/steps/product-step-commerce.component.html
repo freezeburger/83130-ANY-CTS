@@ -1,0 +1,35 @@
+<section class="step-layout">
+  <h3>Commerce</h3>
+
+  <div class="form-grid">
+    <div class="field-block">
+      <label>Prix</label>
+      <input type="number" [formField]="group().price" />
+    </div>
+
+    <div class="field-block">
+      <label>Réduction (%)</label>
+      <input type="number" [formField]="group().discountPercentage" />
+    </div>
+
+    <div class="field-block">
+      <label>Note</label>
+      <input type="number" [formField]="group().rating" />
+    </div>
+
+    <div class="field-block">
+      <label>Stock</label>
+      <input type="number" [formField]="group().stock" />
+    </div>
+
+    <div class="field-block">
+      <label>Poids</label>
+      <input type="number" [formField]="group().weight" />
+    </div>
+
+    <div class="field-block">
+      <label>Quantité minimale</label>
+      <input type="number" [formField]="group().minimumOrderQuantity" />
+    </div>
+  </div>
+</section>

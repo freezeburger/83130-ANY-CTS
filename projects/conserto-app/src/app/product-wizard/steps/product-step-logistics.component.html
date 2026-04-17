@@ -1,0 +1,60 @@
+<section class="step-layout">
+  <h3>Logistique et méta</h3>
+
+  <div class="form-grid">
+    <div class="field-block">
+      <label>Largeur</label>
+      <input type="number" [formField]="group().dimensions.width" />
+    </div>
+
+    <div class="field-block">
+      <label>Hauteur</label>
+      <input type="number" [formField]="group().dimensions.height" />
+    </div>
+
+    <div class="field-block">
+      <label>Profondeur</label>
+      <input type="number" [formField]="group().dimensions.depth" />
+    </div>
+
+    <div class="field-block">
+      <label>Disponibilité</label>
+      <input [formField]="group().availabilityStatus" />
+    </div>
+
+    <div class="field-block col-span-2">
+      <label>Garantie</label>
+      <input [formField]="group().warrantyInformation" />
+    </div>
+
+    <div class="field-block col-span-2">
+      <label>Livraison</label>
+      <input [formField]="group().shippingInformation" />
+    </div>
+
+    <div class="field-block col-span-2">
+      <label>Politique de retour</label>
+      <input [formField]="group().returnPolicy" />
+    </div>
+
+    <div class="field-block">
+      <label>Créé le</label>
+      <input [formField]="group().meta.createdAt" />
+    </div>
+
+    <div class="field-block">
+      <label>Mis à jour le</label>
+      <input [formField]="group().meta.updatedAt" />
+    </div>
+
+    <div class="field-block">
+      <label>Barcode</label>
+      <input [formField]="group().meta.barcode" />
+    </div>
+
+    <div class="field-block">
+      <label>QR code</label>
+      <input [formField]="group().meta.qrCode" />
+    </div>
+  </div>
+</section>
