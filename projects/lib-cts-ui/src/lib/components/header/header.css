@@ -1,0 +1,20 @@
+header {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  color: white;
+  background-color: gray;
+}
+
+:host.primary header {
+  background-color: cornflowerblue;
+}
+
+:host.secondary header {
+  background-color: lightseagreen;
+}
+
+:host.tertiary header {
+  background-color: crimson;
+}

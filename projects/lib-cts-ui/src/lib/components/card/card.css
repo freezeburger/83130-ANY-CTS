@@ -1,0 +1,50 @@
+:host {
+  display: flex;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid lightgray;
+  margin: 5px;
+  width: 30%;
+  min-width: 350px;
+  /*   box-shadow: 0px 0px 5px lightgray; */
+}
+
+:host.primary header {
+  background-color: cornflowerblue;
+}
+
+:host.secondary header {
+  background-color: lightseagreen;
+}
+
+:host.tertiary header {
+  background-color: crimson;
+}
+
+header {
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 5px 5px 0 0;
+  color: white;
+  cursor: pointer;
+  height: 30px;
+}
+
+header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+article {
+  padding: 5px;
+  min-height: 250px;
+}
+
+footer {
+  width: 100%;
+  bottom: 0;
+  background-color: lightgray;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 0 0 5px 5px;
+}

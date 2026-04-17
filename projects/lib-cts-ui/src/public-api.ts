@@ -14,6 +14,7 @@ export * from './types';
 
 export * from './lib/components/button/button';
 export * from './lib/components/header/header';
+export * from './lib/components/card/card';
 
 /**
  * Directives
