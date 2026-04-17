@@ -20,6 +20,9 @@ export * from './lib/components/card/card';
  * Directives
  */
 
+export * from './lib/directives/with-variant';
+export * from './lib/directives/zoom-hover';
+
 /**
  * Pipes
  */

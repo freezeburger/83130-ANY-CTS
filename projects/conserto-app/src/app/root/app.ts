@@ -1,13 +1,13 @@
 import { JsonPipe, NgOptimizedImage } from '@angular/common';
 import { Component, inject, signal, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Button, Header, Card } from '@dev/ui';
+import { Button, Header, Card, ZoomHover } from '@dev/ui';
 import { ProductCrud } from '../core/services/product.crud';
 
 @Component({
   selector: 'app-root',
   // standalone: true,
-  imports: [RouterOutlet, Button, Header, JsonPipe, Card],
+  imports: [RouterOutlet, Button, Header, JsonPipe, Card, ZoomHover],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   host: {
@@ -17,10 +17,4 @@ import { ProductCrud } from '../core/services/product.crud';
 })
 export class App {
   protected readonly title = signal('conserto-app');
-
-  productCrud = inject(ProductCrud);
-
-  ngOnInit(){
-    this.productCrud.read()
-  }
 }

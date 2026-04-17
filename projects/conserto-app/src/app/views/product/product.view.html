@@ -1,0 +1,24 @@
+
+@let products = dataService.data();
+
+@for( p of products; track p.id; let i = $index;) {
+
+@defer (on timer(500ms) ) {
+
+<ui-card [title]="p.title" variant="primary" animate.enter="enter-animation">
+  <p>{{p.description}}</p>
+  <img [src]="p.thumbnail" uiZoomHover>
+  <code>{{p.price}}</code>
+  <div card-footer>
+    <ui-button variant="primary">Action</ui-button>
+    <ui-button variant="tertiary" (click)="dataService.delete(p)">Action</ui-button>
+  </div>
+</ui-card>
+
+}@placeholder {
+  <p>Loading...</p>
+}
+
+} @empty {
+<p>No products available</p>
+}
