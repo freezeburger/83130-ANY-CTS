@@ -2,12 +2,14 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChang
 import { provideRouter } from '@angular/router';
 
 import { routes } from '../routes/app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { crudInterceptor } from '../app/core/interceptors/crud-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([crudInterceptor])),
+    // { provide: HTTP_INTERCEPTORS, useValue: crudInterceptor, multi: true },
     provideRouter(routes),
     provideZoneChangeDetection(),
   ]

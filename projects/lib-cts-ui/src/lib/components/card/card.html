@@ -1,12 +1,13 @@
-
-<header (click)="openState.set(!openState())">
-  <h3>{{ title() }}</h3>
-</header>
-@if (openState()) {
-  <article>
-    <ng-content></ng-content>
-  </article>
-}
-<footer>
-  <ng-content select="[card-footer]"></ng-content>
-</footer>
+<div>
+  <header (click)="openState.set(!openState())">
+    <h3>{{ title() }}</h3>
+  </header>
+  @if (openState()) {
+    <article>
+      <ng-content></ng-content>
+    </article>
+  }
+  <footer>
+    <ng-content select="[card-footer]"></ng-content>
+  </footer>
+</div>
