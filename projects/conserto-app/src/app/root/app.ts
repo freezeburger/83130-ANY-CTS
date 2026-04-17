@@ -1,13 +1,12 @@
-import { JsonPipe, NgOptimizedImage } from '@angular/common';
-import { Component, inject, signal, ViewEncapsulation } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Button, Header, Card, ZoomHover } from '@dev/ui';
-import { ProductCrud } from '../core/services/product.crud';
+import { Component, signal } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { Header } from '@dev/ui';
+
 
 @Component({
   selector: 'app-root',
   // standalone: true,
-  imports: [RouterOutlet, Button, Header, JsonPipe, Card, ZoomHover],
+  imports: [RouterOutlet, Header, RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   host: {

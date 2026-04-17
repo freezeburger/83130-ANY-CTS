@@ -8,4 +8,12 @@ import { ProductConsumer } from '../../core/directives/product.consumer';
   templateUrl: './product.view.html',
   styleUrl: './product.view.scss',
 })
-export class ProductView extends ProductConsumer{}
+export class ProductView extends ProductConsumer{
+  /*
+  override autoload = false;
+
+  loadProducts(){
+    this.dataService.read();
+  }
+  */
+}
